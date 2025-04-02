@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Row containing Back button and Gallery title */
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #fb799d;
+      color: white;
+    }
+
+    .back-button {
+      padding: 12px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #d81b60;
+    }
+
+    .title {
+      font-size: 2em;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-align: center;
+      flex-grow: 1; /* Ensures the title is centered */
+    }
+
+    /* Gallery Container */
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    /* Card Styles */
+    .card {
+      width: 300px;
+      height: 200px; /* Set the height to match the image height */
+      margin: 15px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: scale(1.05); /* Enlarge the card on hover */
+    }
+
+    /* Image styles */
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.1); /* Enlarge the image on hover */
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header row with Back button and Gallery title -->
+  <div class="header-row">
+    <a href="index.html" class="back-button">Back</a>
+    <div class="title">Gallery</div>
+  </div>
+
+  <div class="container" id="gallery-container">
+    <!-- Gallery Images will be injected here -->
+  </div>
+
+  <script>
+    // Manually specify the images in the gallery
+    const imageList = [
+      'image1.jpg',
+      'image2.jpg',
+      'image3.jpg',
+      'image4.jpg',
+      'image5.jpg'
+    ];
+
+    // Get the gallery container
+    const galleryContainer = document.getElementById('gallery-container');
+
+    // Loop through each image in the list and create a card for it
+    imageList.forEach(image => {
+      const card = document.createElement('div');
+      card.classList.add('card');
+
+      const img = document.createElement('img');
+      img.src = `/images/gallery/${image}`;
+      img.alt = `Gallery Image`;
+
+      card.appendChild(img);
+
+      galleryContainer.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
