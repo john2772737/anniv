@@ -91,3 +91,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
+  // Initialize Howler.js sound
+var sound = new Howl({
+    src: ["lover.mp3"], 
+    autoplay: true,
+    loop: true,
+    volume: 0.5
+  });
+  
+  // Play the sound
+  sound.play();
+  
